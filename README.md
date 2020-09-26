@@ -1,11 +1,10 @@
+#This is a fork with added funcionality and fixing some errors. Bases on thosearetheguise code.
+
 # decrypt-openssl-bruteforce
 Basic application to peform a dictionary attack to 'bruteforce' decrypt files encrypted with openssl and save the plain text file locally.
 
-TODO:
-As per the stream, it currently does not support Python3 because I am a n00b. A fix will be coming soon.
-
 ```
-usage: decrypt-openssl-bruteforce.py [-h] -i INFILE -w WORDLIST -o OUTFILE
+usage: decrypt-openssl-bruteforce.py [-h] -i INFILE -w WORDLIST -o OUTFILE -a CIPHERLIST
                                      [-c [CIPHER]] [-s [SALTED]]
                                      [-b64 [BASE64]] [-v [VERBOSE]]
                                      [-vv [VERYVERBOSE]]
@@ -24,6 +23,9 @@ required arguments:
                         Path of the plain text output if decrypted.
 
 optional arguments:
+  -a [CIPHERLIST], --all [CIPHERLIST]
+                          Try all ciphers available in the provided wordlist
+                          This is useful if the cipher is also unknown.
   -c [CIPHER], --cipher [CIPHER]
                         Any openssl supported cipher including leading -
                         (openssl enc -ciphers) default: -aes256
